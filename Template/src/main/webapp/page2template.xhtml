@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:jsf="http://xmlns.jcp.org/jsf" lang="pt-br">
+	
+<ui:composition template="/template.xhtml">
+
+
+
+<ui:param name="titulo" value="LISTA DE FILMES"></ui:param> <!-- PASSA PARAMETROS DE UMA PÁGINA PARA OUTRA -->
+<ui:define name="conteudo">  <!-- SUBSTITUE A LISTA NO LUGAR DE "CONTEUDO" -->
+LISTA DE FILMES
+
+				<ul>
+
+					<li>ENCANTO</li>
+					<li>DUNA</li>
+					<li>MOONFAL</li>
+					<li>CANDYMAN</li>
+
+				</ul>
+</ui:define> 
+</ui:composition>
+</html>

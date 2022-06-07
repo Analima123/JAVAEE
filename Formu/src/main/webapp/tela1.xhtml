@@ -16,6 +16,8 @@
 
 	<h:form>
 		<h:panelGrid columns="2">
+			
+			<!-- Permite a entrada das informações a serem preenchidas como os DADOS COMERCIAIS -->
 			<f:facet name="header">
 				Dados Comerciais
 			</f:facet>
@@ -26,7 +28,8 @@
 			Cargo:
 			<h:inputText value="#{cadastro.pessoa.cargo}" />
 			
-			Sal�rio:
+			<!-- Converte o valor para a moeda brasileira -->
+			Salário:
 			<h:inputText value="#{cadastro.pessoa.salario}">
 				<f:convertNumber locale="pt_BR" />
 			</h:inputText>
@@ -34,7 +37,7 @@
 			Rua:
 			<h:inputText value="#{cadastro.pessoa.enderecoComercial.rua}" />
 			
-			N�mero:
+			Número:
 			<h:inputText value="#{cadastro.pessoa.enderecoComercial.numero}" />
 			
 			Complemento:
@@ -49,6 +52,8 @@
 			Cidade:
 			<h:inputText value="#{cadastro.pessoa.enderecoComercial.cidade}" />
 			
+			<!-- Mostra as opções de acordo com a lista de objetos "ESTADOS" -->
+			<!-- Aloca a opção escolhida na variável "e" e retorna o valor escolhido como apenas a SIGLA -->
 			Estado:
 			<h:selectOneMenu value="#{cadastro.pessoa.enderecoComercial.estado.sigla}">
 				<f:selectItem itemValue="Selecione" noSelectionOption="true" />
@@ -63,8 +68,8 @@
 			
 		</h:panelGrid>
 
-
-		<h:commandButton value="Pr�ximo" action="tela2"></h:commandButton>
+		<!-- Leva o usuário para a próxima página do formulário -->
+		<h:commandButton value="Próximo" action="tela2"></h:commandButton>
 		
 		
 	</h:form>

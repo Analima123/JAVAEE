@@ -12,12 +12,14 @@
 </h:head>
 
 <h:body>
-	<h2>Soma de N�meros</h2>
+	<h2>Soma de Números</h2>
 	<h:form id="form">
+		<!-- Coloca as caixas de input text para receber os valores a serem somados -->
 		Valor #1:<br /><h:inputText value="#{pageBean.valor1}" /><br /><br />
 		Valor #2:<br /><h:inputText value="#{pageBean.valor2}" /><br /><br />
 		Valor #3:<br /><h:inputText value="#{pageBean.valor3}" /><br /><br />
 		
+		<!-- A ação será executada de acordo com o método definido no "PAGE BEAN" -->
 		<h:commandButton value="Somar" action="#{pageBean.somar}" />
 	</h:form>
 </h:body>

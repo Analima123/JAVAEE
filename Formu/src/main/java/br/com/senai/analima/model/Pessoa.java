@@ -2,6 +2,8 @@ package br.com.senai.analima.model;
 
 import java.util.Date;
 
+
+//Classe Pessoa e seus atributos 
 public class Pessoa {
 	
 	private String nome;

@@ -1,5 +1,7 @@
 package br.com.senai.analima.model;
 
+
+//Classe Endereço e seus atributos 
 public class Endereco {
 	
 	private String rua;

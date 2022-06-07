@@ -7,7 +7,7 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 
 
-// Usado para retirar o Warning na tela -->
+// Usado para retirar o Warning na tela 
 @SuppressWarnings("serial")
 
 // Define o nome que o BEAN será chamado na página XHTML

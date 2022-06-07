@@ -1,6 +1,6 @@
 package br.com.senai.analima.model;
 
-
+//Classe Interesse e seus atributos 
 public class Interesse {
 
 	private Integer id;

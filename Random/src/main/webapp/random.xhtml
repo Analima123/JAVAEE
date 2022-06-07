@@ -7,15 +7,16 @@
 
 <h:head>
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
-	<title>Gerador de N�meros Aleat�rios</title>
+	<title>Gerador de Números Aleatórios</title>
 </h:head>
 
 <body>
 	<h:form>
 		<h:panelGrid columns="2">
-			<f:facet name="header">Gerador de N�meros Aleat�rios</f:facet>
+			<f:facet name="header">Gerador de Números Aleatórios</f:facet>
 		
-			Quantidade de n�meros:
+			<!-- Permite a escolha de quantos números serão gerados -->
+			Quantidade de números:
 			<h:selectOneMenu value="#{numberBean.qtde}">
 				<f:selectItem itemValue="1" itemLabel="1" />
 				<f:selectItem itemValue="2" itemLabel="2" />
@@ -24,16 +25,21 @@
 				<f:selectItem itemValue="5" itemLabel="5" />
 			</h:selectOneMenu>
 		
-			Valor m�nimo:
+			<!-- Permite a entrada de um valor MÍNIMO com até 4 números" -->
+			Valor mínimo:
 			<h:inputText value="#{numberBean.min}" size="4" />
 			
-			Valor m�ximo:
+			<!-- Permite a entrada de um valor MÁXIMO com até 4 números" -->
+			Valor máximo:
 			<h:inputText value="#{numberBean.max}" size="4" />
 		</h:panelGrid>
 
+		<!-- Aciona o método "GERAR" que se encontra no NUMBERBEAN -->
 		<h:commandButton value="Gerar" action="#{numberBean.gerar}" />
 		<hr />
 
+		<!-- Mostra os números que foram gerados de acordo com a escolha do usuário -->
+		
 		<h:selectManyListbox rendered="#{numberBean.numeros.size() > 0}" style="width: 140px;" readonly="true">
 			<f:selectItems value="#{numberBean.numeros}" var="n" itemLabel="#{n}" />
 		</h:selectManyListbox>

@@ -9,7 +9,7 @@
 
 <h:head>
 	<meta http-equi="Content-Type" content="text/html; charset=ISO-8859-1"/>
-	<title> Navegação </title>	
+	<title> NavegaÃ§Ã£o </title>	
 </h:head>
 	
 	<body>
@@ -20,10 +20,13 @@
 	
 	<h:form>
 	
+	<!-- Atribui valor a pÃ¡gina -->	
 	
-	Página: <h:inputText value = "#{pageBean.page}">   </h:inputText>
+	PÃ¡gina: <h:inputText value = "#{pageBean.page}">   </h:inputText>
+		
+	<!-- Chama o mÃ©todo goTo que se encontra no page bean -->
 	
-	<h:commandButton value ="Ir para a página"  action="#{pageBean.goTo}"> </h:commandButton>
+	<h:commandButton value ="Ir para a pÃ¡gina"  action="#{pageBean.goTo}"> </h:commandButton>
 	
 	
 	</h:form>

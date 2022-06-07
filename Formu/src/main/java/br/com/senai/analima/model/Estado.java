@@ -1,5 +1,7 @@
 package br.com.senai.analima.model;
 
+
+//Classe Estado e seus atributos 
 public class Estado {
 	
 	private String sigla;

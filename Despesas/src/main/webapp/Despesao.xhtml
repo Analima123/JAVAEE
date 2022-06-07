@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:f="http://xmlns.jcp.org/jsf/core"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:jsf="http://xmlns.jcp.org/jsf"
+	lang="pt-br">
+
+<h:head>
+	<meta http-equi="Content=Type" content="text/html; charset=ISO-8859-1"/>
+	<title>Despesas</title>
+</h:head>
+<h:body>
+<h:outputStylesheet library="css" name="styles.css"></h:outputStylesheet>
+
+
+
+	<h:form>
+	<h:panelGroup rendered ="#{tabela.despesas.size() > 0 }">
+		<table class="tabela">
+		<tr>
+		<th class="cabecalho" colspan= "5"> Lista de despesas </th>
+		</tr>
+		
+		<tr>
+				<th class="cabecalho" > ID </th>
+				<th class="cabecalho" > Data</th>
+				<th class="cabecalho" > Descrição</th>
+				<th class="cabecalho" > Valor </th>
+				<th class="cabecalho" >	Operação </th>
+		
+			
+		</tr>
+		
+		<ui:repeat value="#{tabela.despesas}" var="d" varStatus="st" >
+		
+		<tr>
+			<td class="colNumero"> 
+			#{st.index + 1}
+			</td>
+			
+			
+			<td class="colDate">
+				<h:outputText value="#{d.data}"  rendered = "#{!d.edit}">
+			 	<!--  <f:convertDateTime pattern ="dd/MM/yyyy"/>-->
+			 	</h:outputText>
+			 	<h:inputText value="#{d.data}" rendered="#{d.edit}"/>
+			
+		</td>
+		
+		<td class="colDesc">
+			<f:facet name="header"> Descrição </f:facet>
+				<h:outputText value="#{d.descricao}"  rendered = "#{!d.edit}"/>
+			<h:inputText value="#{d.descricao}"  rendered = "#{d.edit}"/>
+		</td>
+		
+
+		
+		<td class="colValor">
+			<h:outputText value="#{d.valor}"  rendered = "#{!d.edit}">
+			<f:convertNumber type= "currency" local="pt_BR"/> 
+			</h:outputText>
+			<h:inputText value="#{d.valor}"  rendered = "#{d.edit}"/>
+</td>
+		
+		<td class="colOp">
+		
+		<h:panelGroup rendered="#{!d.edit}">
+				<h:commandLink value="ALTERAR" action="#{tabela.editar(d)}"/>
+				<h:commandLink value="EXCLUIR" action="#{tabela.excluir(d)}"/>	
+			</h:panelGroup>
+			<h:commandButton value= "GRAVAR" action ="#{tabela.gravar(d)}" rendered= "#{d.edit}"/>
+			</td>
+</tr>
+		</ui:repeat>
+		</table>
+		</h:panelGroup>
+		<h:panelGroup rendered="#{tabela.despesas.size() == 0}" size="100px">
+		<h:outputText value="Não existe despesas cadastrados" styleClass="message"/>
+		</h:panelGroup>
+		
+		
+		
+		<br/>
+			
+	<h:commandButton value ="INSERIR" action="#{tabela.inserir}"/>
+	
+	
+
+
+</h:form>
+
+
+
+</h:body>
+</html>

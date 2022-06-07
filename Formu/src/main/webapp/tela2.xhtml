@@ -14,6 +14,7 @@
 
 	<h:form>
 		<h:panelGrid columns="2">
+			<!-- Permite a entrada das informações a serem preenchidas como os DADOS PESSOAIS -->
 			<f:facet name="header">
 				Dados Pessoais
 			</f:facet>
@@ -24,6 +25,7 @@
 			E-mail:
 			<h:inputText value="#{cadastro.pessoa.email}" />
 			
+			<!-- Converte para o formato Data
 			Data de nascimento:
 			<h:inputText value="#{cadastro.pessoa.dataNascimento}">
 				<f:convertDateTime pattern="dd/MM/yyyy" />
@@ -32,7 +34,7 @@
 			Rua:
 			<h:inputText value="#{cadastro.pessoa.enderecoResidencial.rua}" />
 			
-			N�mero:
+			Número:
 			<h:inputText value="#{cadastro.pessoa.enderecoResidencial.numero}" />
 			
 			Complemento:
@@ -47,6 +49,7 @@
 			Cidade:
 			<h:inputText value="#{cadastro.pessoa.enderecoResidencial.cidade}" />
 			
+
 			Estado:
 			<h:selectOneMenu value="#{cadastro.pessoa.enderecoResidencial.estado.sigla}">
 				<f:selectItem itemValue="Selecione" noSelectionOption="true" />
@@ -69,7 +72,7 @@
 		</h:panelGrid>
 
 <h:commandButton value="Anterior" action="tela1"></h:commandButton>
-		<h:commandButton value="Pr�ximo >>" action="tela3" />
+		<h:commandButton value="Próximo >>" action="tela3" />
 	</h:form>
 </body>
 </html>

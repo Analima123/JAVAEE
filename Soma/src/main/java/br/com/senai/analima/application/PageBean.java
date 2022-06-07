@@ -6,8 +6,14 @@ import java.io.Serializable;
 import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 
+
+// Usado para retirar o Warning na tela -->
 @SuppressWarnings("serial")
+
+// Define o nome que o BEAN será chamado na página XHTML
 @Named
+	
+// Define o tempo de vida do ESCOPO, no caso o REQUESTSCOPED ficará "vivo" durante a requisição HTTP, ou seja, após a mostra do resultado,tudo será excluido e será gerada uma nova requisição caso a página seja acionada novamente.
 @RequestScoped
 public class PageBean implements Serializable {
 
@@ -16,8 +22,9 @@ public class PageBean implements Serializable {
 	private Integer valor3;
 	private Integer resultado;
 	
+	// Soma os valores, armazena no atributo da classe e leva o usuário pra tela 'result'
 	public String somar() {
-		// Soma os valores, armazena no atributo da classe e leva o usuário pra tela 'result'
+		
 		resultado = valor1 + valor2 + valor3;
 		return "result";
 	}

@@ -10,6 +10,8 @@
 	<meta http-equi="Content-Type" content="text/html; charset=ISO-8859-1"/>
 	<title>Cadastro</title>
 	
+	
+	<!-- Script responsável pela verificação da senha -->
 	<script>
 		function verificarSenhas(){
 			var senha1 = document.getElementById("f:s1").value;
@@ -19,7 +21,7 @@
 				return true;
 			}
 			
-			alert("Senhas s�o diferentes");
+			alert("Senhas são diferentes");
 			return false;
 		}	
 	</script>
@@ -29,8 +31,10 @@
 <h:body>
 	<h:form id="f">
 		<h:panelGrid columns="2">
+			
+	<!-- Recebe as informações do usuário -->
 			<f:facet name="header">
-				Cadastro de Usu�rio
+				Cadastro de Usuário
 			</f:facet>
 			Nome:
 			<h:inputText  value = "#{cadastro.nome}"/>	
@@ -38,9 +42,11 @@
 			<h:inputText  value = "#{cadastro.email}"/>
 			Senha:
 			<h:inputText id="s1"  value = "#{cadastro.senha1}"/>
-			Confirma��o de senha:
+			Confirmação de senha:
 			<h:inputText id="s2"  value = "#{cadastro.senha2}"/>
 			Sexo:
+			
+	<!-- Recebe o valor do sexo como apenas "F" e "M" -->
 			<h:selectOneRadio value = "#{cadastro.sexo}">
 				<f:selectItem   itemValue="F"  itemLabel="Feminino"/>
 				<f:selectItem   itemValue="M"  itemLabel="Masculino"/> 
@@ -48,10 +54,11 @@
 			
 			Deseja receber e-mail?
 			<h:selectBooleanCheckbox value = "#{cadastro.receberEmails}" />
-			Observa��es:
+			Observações:
 			<h:inputTextarea value = "#{cadastro.observacoes}"  rows="4" cols="30"/>
 			
-			Linguagens de programa��o:
+	<!--Carrega a lista de LINGUAGENS e guarda a opção selecionada na variável l  -->
+			Linguagens de programação:
 			<h:selectManyCheckbox value="#{cadastro.linguagens}">
 				
 				<f:selectItems value="#{cadastro.listaLinguagens}"  var="l"
@@ -60,6 +67,7 @@
 			</h:selectManyCheckbox>	
 		</h:panelGrid>
 		
+	<!-- Responsável por cadastrar e levar para a página de informações caso as senhas estiverem verificadas corretamente  -->
 		<h:commandButton value = "Cadastrar"  action="info" onclick = "return verificarSenhas();"/>
 	</h:form>
 </h:body>

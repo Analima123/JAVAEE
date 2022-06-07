@@ -21,7 +21,7 @@ public class Lista {
 		
 	static {
 		
-		// A constante ESTADO, recebe o objeto Estado, com os parâmetros: SIGLA E ESTADO 
+		// A constante ESTADO, recebe o objeto Estado, com os parâmetros definidos na classe Estados: SIGLA E ESTADO 
 		ESTADOS = new ArrayList<>();
 		ESTADOS.add(new Estado("AC","ACRE"));
 		ESTADOS.add(new Estado("AL","ALAGOAS"));
@@ -60,7 +60,7 @@ public class Lista {
 			
 	static  {
 		
-		// A constante INTERESSES, recebe o objeto Interesse, com os parâmetros: ID e INTERESSE
+		// A constante INTERESSES, recebe o objeto Interesse, com os parâmetros definidos na classe Interesse: ID e ÁREA
 		INTERESSES = new ArrayList<>();
 		INTERESSES.add(new Interesse(1,"Esportes"));
 		INTERESSES.add(new Interesse(2,"Música"));

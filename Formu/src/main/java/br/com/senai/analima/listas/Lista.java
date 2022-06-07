@@ -9,12 +9,19 @@ import br.com.senai.analima.model.Interesse;
 
 public class Lista {
 	
+// Uma constante é a alocação de uma espaço na memória para guardar um valor durante toda a execução de um programa ou então, durante a execução de um determinado Bloco de Instrução.
+// A diferença entre CONSTANTE e VARIÁVEL, é que em nenhum momento a constante pode sofrer alteração de valor durante o seu tempo de execução
+// Deve ser chamada com todas as letras MAIÚSCULAS, como no exemplo abaixo 
+// Uma classe com o modificador "final" não pode ser estendida,não pode ter classes que herdam dela.
+
+
 
 	public static final List<Estado>ESTADOS;
 	public static final List<Interesse>INTERESSES;
 		
 	static {
 		
+		// A constante ESTADO, recebe o objeto Estado, com os parâmetros: SIGLA E ESTADO 
 		ESTADOS = new ArrayList<>();
 		ESTADOS.add(new Estado("AC","ACRE"));
 		ESTADOS.add(new Estado("AL","ALAGOAS"));
@@ -50,10 +57,10 @@ public class Lista {
 
 	
 
-
 			
 	static  {
 		
+		// A constante INTERESSES, recebe o objeto Interesse, com os parâmetros: ID e INTERESSE
 		INTERESSES = new ArrayList<>();
 		INTERESSES.add(new Interesse(1,"Esportes"));
 		INTERESSES.add(new Interesse(2,"Música"));

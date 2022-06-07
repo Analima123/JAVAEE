@@ -25,7 +25,7 @@
 			E-mail:
 			<h:inputText value="#{cadastro.pessoa.email}" />
 			
-			<!-- Converte para o formato Data
+			<!-- Converte para o formato Data -->
 			Data de nascimento:
 			<h:inputText value="#{cadastro.pessoa.dataNascimento}">
 				<f:convertDateTime pattern="dd/MM/yyyy" />
@@ -49,7 +49,9 @@
 			Cidade:
 			<h:inputText value="#{cadastro.pessoa.enderecoResidencial.cidade}" />
 			
-
+			<!-- Mostra as opções de acordo com a lista de objetos "ESTADOS" -->
+			<!-- Aloca a opção escolhida na variável "e" e retorna o valor escolhido como apenas a SIGLA -->
+			
 			Estado:
 			<h:selectOneMenu value="#{cadastro.pessoa.enderecoResidencial.estado.sigla}">
 				<f:selectItem itemValue="Selecione" noSelectionOption="true" />
@@ -71,6 +73,8 @@
 			
 		</h:panelGrid>
 
+		
+<!-- Leva o usuário para a próxima página do formulário -->
 <h:commandButton value="Anterior" action="tela1"></h:commandButton>
 		<h:commandButton value="Próximo >>" action="tela3" />
 	</h:form>

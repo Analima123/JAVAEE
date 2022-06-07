@@ -8,13 +8,15 @@
 	lang="pt-br">
 <h:head>
 	<meta http-equi="Content-Type" content="text/html; charset=ISO-8859-1"/>
-	<title>Informações</title>
+	<title>InformaÃ§Ãµes</title>
 </h:head>
 
 <h:body>
 	<h:panelGrid columns="2">
+		
+		<!-- Mostra as informaÃ§Ãµes preenchidas do usuÃ¡rio -->
 		<f:facet name="header">
-				Cadastro de Usuário
+				Cadastro de UsuÃ¡rio
 		</f:facet>
 		<h:outputText value = "Nome:" />
 		<h:outputText value = "#{cadastro.nome}" />
@@ -25,21 +27,24 @@
 		<h:outputText value = "Senha" />
 		<h:outputText value = "#{cadastro.senha1}" />
 		
-		<h:outputText value = "Confirmação de senha" />
+		<h:outputText value = "ConfirmaÃ§Ã£o de senha" />
 		<h:outputText value = "#{cadastro.senha2}" />
 				
 		<h:outputText value = "Sexo:" />	
 		<h:outputText value = "Masculino" rendered="#{cadastro.sexo == 'M'}"/>
 		<h:outputText value = "Feminino" rendered="#{cadastro.sexo == 'F'}"/> 
-			
+		
+		<!-- CondiÃ§Ã£o responsÃ¡vel por renderizar a informaÃ§Ã£o de acordo com a escolha do usuÃ¡rio anteriormente
 		<h:outputText value = "Deseja receber e-mails?" />
 		<h:outputText value = "sim" rendered = "#{cadastro.receberEmails}"/>
-		<h:outputText value = "não" rendered = "#{!cadastro.receberEmails}"/>	
+		<h:outputText value = "nÃ£o" rendered = "#{!cadastro.receberEmails}"/>	
 		
-		<h:outputText value = "Observações:" />
+		<h:outputText value = "ObservaÃ§Ãµes:" />
 		<h:outputText value = "#{cadastro.observacoes}" />		
 		
-		<h:outputText value = "Linguagens de programação" />
+
+                <!-- Serializa uma matriz escalar, unidimensional ou bidimensional como uma string -->
+		<h:outputText value = "Linguagens de programaÃ§Ã£o" />
 		<h:outputText value = "#{cadastro.linguagensAsString}" />
 	
 	</h:panelGrid>

@@ -1,8 +1,11 @@
 package br.com.senai.analima.model;
 
-
+//Classe Telefone e seus atributos 
 public class Telefone {
 
+	// Uma enum é um tipo no qual declaramos um conjunto de valores constantes pré-definidos.
+	// Por serem constantes, possuem as letras MAIÚSCULAS
+	// Ao utilizar enums, limitamos os valores que podem ser atribuídos a uma variável. Sendo assim, devemos atribuir ao campo um dos valores pré-definidos na enum Turno.
 	public enum Tipo {
 		FIXO, CELULAR
 	}

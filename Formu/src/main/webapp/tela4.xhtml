@@ -11,6 +11,9 @@
 </h:head>
 
 <body>
+	
+	<!-- Mostra o resultado do formul√°rio -->
+	<!-- OBS* s√£o usados apenas OutputText, usadas para apenas mostrar os dados preenchidos -->
 		<h:panelGrid columns="3" border="1">
 		<h:panelGrid columns="2">
 			<f:facet name="header">
@@ -23,7 +26,9 @@
 			Cargo:
 			<h:outputText value="#{cadastro.pessoa.cargo}" />
 			
-			Sal·rio:
+			
+			<!-- Converte o valor para a moeda brasileira -->
+			Sal√°rio:
 			<h:outputText value="#{cadastro.pessoa.salario}">
 				<f:convertNumber type="currency" locale="pt_BR" />
 			</h:outputText>
@@ -31,7 +36,7 @@
 			Rua:
 			<h:outputText value="#{cadastro.pessoa.enderecoComercial.rua}" />
 			
-			N˙mero:
+			N√∫mero:
 			<h:outputText value="#{cadastro.pessoa.enderecoComercial.numero}" />
 			
 			Complemento:
@@ -74,7 +79,7 @@
 			Rua:
 			<h:outputText value="#{cadastro.pessoa.enderecoResidencial.rua}" />
 			
-			N˙mero:
+			N√∫mero:
 			<h:outputText value="#{cadastro.pessoa.enderecoResidencial.numero}" />
 			
 			Complemento:
@@ -102,7 +107,7 @@
 		
 		<h:panelGrid columns="1">
 			<f:facet name="header">
-				¡reas de Interesse
+				√Åreas de Interesse
 			</f:facet>
 		
 			<h:selectManyCheckbox value="#{cadastro.pessoa.interesses}" layout="pageDirection" readonly="true">

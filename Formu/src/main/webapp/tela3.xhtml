@@ -14,8 +14,10 @@
 
 	<h:form>
 		<h:panelGrid columns="1">
+			<!-- Mostra as opções de acordo com a lista de objetos "INTERESSES" -->
+			<!-- Aloca a opção escolhida na variável "i" e retorna o valor escolhido como apenas a ÁREA -->
 			<f:facet name="header">
-				�reas de Interesse
+				Áreas de Interesse
 			</f:facet>
 		
 			<h:selectManyCheckbox value="#{cadastro.pessoa.interesses}" layout="pageDirection">
@@ -24,6 +26,7 @@
 			
 		</h:panelGrid>
 
+		<!-- Leva o usuário para a página anterior/seguinte do formulário -->
 		<h:commandButton value="&lt;&lt;Anterior"  action="tela2" />
 		<h:commandButton value="Finalizar >>" action="tela4" />
 	</h:form>

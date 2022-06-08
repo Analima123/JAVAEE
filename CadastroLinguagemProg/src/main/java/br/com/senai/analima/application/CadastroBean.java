@@ -7,9 +7,17 @@ import javax.inject.Named;
 
 import br.com.senai.analima.model.Linguagem;
 
+// Usado para retirar o Warning na tela 
 @SuppressWarnings("serial")
+
+// Define o tempo de vida do ESCOPO, no caso o REQUESTSCOPED ficará "vivo" durante a requisição HTTP, ou seja, após a mostra do resultado,tudo será excluido e será gerada uma nova requisição caso a página seja acionada novamente.
 @RequestScoped
+
+// Define o nome que o BEAN será chamado na página XHTML, no caso será chamado de "cadastro"
 @Named("cadastro")
+
+
+// A serialização significa salvar o estado atual dos objetos em arquivos em formato binário para o seu computador, sendo assim esse estado poderá ser recuperado posteriormente recriando o objeto em memória assim como ele estava no momento da sua serialização.
 public class CadastroBean implements Serializable{
 	private String nome;
 	private String email;
@@ -18,8 +26,11 @@ public class CadastroBean implements Serializable{
 	private String sexo;
 	private Boolean receberEmails;
 	private String observacoes;
+	
+	//Vetores de linguagens
 	private Integer[] linguagens;
 	
+	// LINGUAGENS = Constante, ou seja, valor não pode ser alterado durante a execução do código 
 	public Linguagem[] getListaLinguagens() {
 		return Linguagem.LINGUAGENS;
 	}
@@ -73,6 +84,8 @@ public class CadastroBean implements Serializable{
 		this.linguagens = linguagens;
 	}
 	
+	
+	// Permite que as linguagens sejam apresentadas em uma única linha 
 	public String getLinguagensAsString() {
 		String str="";
 		boolean first = true;

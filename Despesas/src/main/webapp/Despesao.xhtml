@@ -12,11 +12,15 @@
 	<title>Despesas</title>
 </h:head>
 <h:body>
+	
+	<!-- Responsável por chamar o estilo da página -->
 <h:outputStylesheet library="css" name="styles.css"></h:outputStylesheet>
 
 
-
+        
 	<h:form>
+		
+		<!-- Permite que a tabela só apareça caso haja alguma despesa -->
 	<h:panelGroup rendered ="#{tabela.despesas.size() > 0 }">
 		<table class="tabela">
 		<tr>
@@ -26,16 +30,20 @@
 		<tr>
 				<th class="cabecalho" > ID </th>
 				<th class="cabecalho" > Data</th>
-				<th class="cabecalho" > Descri��o</th>
+				<th class="cabecalho" > Descrição</th>
 				<th class="cabecalho" > Valor </th>
-				<th class="cabecalho" >	Opera��o </th>
+				<th class="cabecalho" >	Operação </th>
 		
 			
 		</tr>
-		
+			
+		<!-- Usada quando queremos percorrer todos os objetos de uma coleção e manipulá-los ou exibí-los um de cada vez -->
+		<!-- As despesas serão gravadas na variável "d" -->
 		<ui:repeat value="#{tabela.despesas}" var="d" varStatus="st" >
 		
 		<tr>
+			
+			<!-- Sempre que uma nova despesa for adicionada, um novo indice será acrescentado -->
 			<td class="colNumero"> 
 			#{st.index + 1}
 			</td>
@@ -50,7 +58,7 @@
 		</td>
 		
 		<td class="colDesc">
-			<f:facet name="header"> Descri��o </f:facet>
+			<f:facet name="header"> Descrição </f:facet>
 				<h:outputText value="#{d.descricao}"  rendered = "#{!d.edit}"/>
 			<h:inputText value="#{d.descricao}"  rendered = "#{d.edit}"/>
 		</td>
@@ -66,6 +74,8 @@
 		
 		<td class="colOp">
 		
+			<!-- Editar/Excluir só aparecerão caso a despesa for gravada -->
+			
 		<h:panelGroup rendered="#{!d.edit}">
 				<h:commandLink value="ALTERAR" action="#{tabela.editar(d)}"/>
 				<h:commandLink value="EXCLUIR" action="#{tabela.excluir(d)}"/>	
@@ -73,17 +83,22 @@
 			<h:commandButton value= "GRAVAR" action ="#{tabela.gravar(d)}" rendered= "#{d.edit}"/>
 			</td>
 </tr>
+			
+			
 		</ui:repeat>
 		</table>
 		</h:panelGroup>
+		
+		<!-- Caso não haja nenhuma despesa gravada na tabela, a mensagem abaixo será exibida -->
 		<h:panelGroup rendered="#{tabela.despesas.size() == 0}" size="100px">
-		<h:outputText value="N�o existe despesas cadastrados" styleClass="message"/>
+		<h:outputText value="Não existe despesas cadastrados" styleClass="message"/>
 		</h:panelGroup>
 		
 		
 		
 		<br/>
-			
+		
+	<!-- Permite a adição de uma nova despesa -->
 	<h:commandButton value ="INSERIR" action="#{tabela.inserir}"/>
 	
 	

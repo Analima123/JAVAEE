@@ -11,6 +11,7 @@
 	<meta http-equiv="Content-Type" content="text/html; charset=ISO-8859-1" />
 	<title>Pedidos</title>
 	
+	<!-- Estilo da página -->
 	<style type="text/css">
 		.table {
 			font-family: verdana;
@@ -56,9 +57,14 @@
 <body>
 <h:form>
 
+	<!-- Redireciona para a página de Novo pedido -->
+	
 <h:commandButton value="Novo Pedido" action="pedido?faces-redirect=true" />
 <br /><br />
 
+	<!-- Carrega a lista de pedidos que será atribuido na variável "p" -->
+	<!-- A tabela só irá aparecer se tiverem pedidos existentes -->
+	
 <h:dataTable value="#{listPedidosBean.pedidos}" var="p" styleClass="table" headerClass="header" rendered="#{listPedidosBean.pedidos.size() > 0}"
 	columnClasses="column sizeSmall alignCenter,column sizeLarge alignLeft,column sizeLarge alignLeft,column sizeSmall alignCenter,column sizeLarge alignLeft, column sizeLarge alignCenter,column sizeSmall alignCenter">
 	<f:facet name="header">Lista de Pedidos</f:facet>
@@ -78,12 +84,18 @@
 		<h:outputText value="#{p.cliente.email}" />
 	</h:column>
 	<h:column>	
+		
+		<!-- Carrega o valor total, convertido em moeda -->
+		
 		<f:facet name="header">Valor</f:facet>
 		<h:outputText value="#{p.valorTotal}">
 			<f:convertNumber type="currency" locale="pt_BR" />
 		</h:outputText>
 	</h:column>
 	<h:column>	
+		
+		<!-- Converte para moeda -->
+		
 		<f:facet name="header">Produtos</f:facet>
 		<ui:repeat var="pr" value="#{p.produtos}">
 			<h:outputText value="#{pr.nome} - #{formatterBean.formatarMoeda(pr.valor)}" />
@@ -91,15 +103,21 @@
 		</ui:repeat>
 	</h:column>
 	<h:column>	
+		
+		<!-- Apresenta duas formas de pagamento, ao ser selecionada, a forma de pagamento escolhida ficará em destaque na tabela -->
+		
 		<f:facet name="header">Pagar</f:facet>
 		<h:panelGroup rendered="#{p.pagamento == null}">
 			<h:commandLink value="Boleto" action="#{listPedidosBean.pagar(p.id, 'BOLETO')}" />
 			 | 
-			<h:commandLink value="Cart�o Cr�dito" action="#{listPedidosBean.pagar(p.id, 'CARTAO_CREDITO')}" />
+			<h:commandLink value="Cartão Crédito" action="#{listPedidosBean.pagar(p.id, 'CARTAO_CREDITO')}" />
 		</h:panelGroup>
 		<h:outputText value="#{p.pagamento.tipoPagto}" rendered="#{p.pagamento != null}" />
 	</h:column>
 	<h:column>	
+		
+		<!-- Exclui o pedido -->
+		
 		<f:facet name="header">Excluir</f:facet>
 		<h:commandLink value="Excluir" action="#{listPedidosBean.excluir(p.id)}" />
 	</h:column>

@@ -17,20 +17,30 @@
 
 <h:form>
 	<h3>Escolha um cliente:</h3>
+	
+	<!-- Carrega a lista de clientes, vinda do MySql -->
+	<!-- O cliente selecionado, será adicionado na variável "c" -->
 	<h:selectOneMenu value="#{editPedidoBean.selectedClienteId}">
 		<f:selectItems value="#{editPedidoBean.clientes}" var="c" itemValue="#{c.id}" itemLabel="#{c.nome} (#{c.email})" />
 	</h:selectOneMenu>
 	
 	<br />
 	
+	<!-- Carrega a lista de produtos, vinda do MySql -->
+	<!-- O produto selecionado, será adicionado na variável "p" -->
 	<h3>Escolha os produtos:</h3>
 	<h:selectManyCheckbox value="#{editPedidoBean.selectedProdutosIds}" layout="pageDirection">
+		
+		<!-- Formata o valor para moeda -->
 		<f:selectItems value="#{editPedidoBean.produtos}" var="p" itemValue="#{p.id}" itemLabel="#{p.nome} - #{formatterBean.formatarMoeda(p.valor)}" />
 	</h:selectManyCheckbox>
 	
-	<br />
+	<br/>
 
+	<!-- Permite que o pedido seja cadastrado -->
 	<h:commandButton value="Cadastrar Pedido" action="#{editPedidoBean.cadastrarPedido}" />
+	
+	<!-- Redireciona a página resetando as informações que foram preenchidas anteriormente -->
 	<h:commandButton value="Cancelar" action="pedidos?faces-redirect=true" />
 </h:form>
 </body>

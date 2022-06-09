@@ -16,11 +16,12 @@ public class ClienteBean {
 
 	@PersistenceContext
 	
-	//Recurso responsável por realizar as operações de sincronismo com o banco de dados (inserir, remover, atualizar ou consultar - CRUD) e gerenciar o ciclo de vida das entidades.
-	//Quando uma inserção no banco de dados é realizada, o EntityManager será o responsável
+	// Recurso responsável por realizar as operações de sincronismo com o banco de dados (inserir, remover, atualizar ou consultar - CRUD) e gerenciar o ciclo de vida das entidades.
+	// Quando uma inserção no banco de dados é realizada, o EntityManager será o responsável
 	
 	
-	//Método Listar Clientes
+	// Método Listar Clientes
+	// Os valores de cliente serão retirados do banco de dados
 	public List<Cliente> listar() {
 		return em.createQuery("SELECT c FROM Cliente c", Cliente.class).getResultList();
 	}

@@ -44,6 +44,7 @@ public class EditPedidoBean implements Serializable {
 	
 	// No @PostConstruct método, o bean é totalmente inicializado e você pode usar as dependências.
 	// Precisa ser executado após a injeção de dependência ser executada para executar qualquer inicialização.
+	
 	@PostConstruct
 	public void init() {
 		clientes = clienteBean.listar();

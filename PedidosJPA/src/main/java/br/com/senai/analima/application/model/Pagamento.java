@@ -10,6 +10,10 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.OneToOne;
 
+
+	// Uma enum é um tipo no qual declaramos um conjunto de valores constantes pré-definidos.
+	// Por serem constantes, possuem as letras MAIÚSCULAS
+	// Ao utilizar enums, limitamos os valores que podem ser atribuídos a uma variável. Sendo assim, devemos atribuir ao campo um dos valores pré-definidos na enum TipoPagamento.
 @Entity
 public class Pagamento implements Serializable {
 	public enum TipoPagamento {

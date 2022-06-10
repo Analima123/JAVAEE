@@ -8,11 +8,18 @@ import javax.enterprise.context.RequestScoped;
 import javax.inject.Named;
 
 @Named("loginb") 
+
+
 @RequestScoped
+
+
 public class LoginBean implements Serializable{
 
 	private String nome;
 	private String senha;
+	
+	
+	
 	
 	@PostConstruct
 	public void onCreate() {

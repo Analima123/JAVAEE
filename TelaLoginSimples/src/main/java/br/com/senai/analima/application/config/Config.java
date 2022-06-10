@@ -1,3 +1,6 @@
+// Força a implantação do JAVA FACES
+
+
 package br.com.senai.analima.application.config;
 
 import javax.enterprise.context.ApplicationScoped;

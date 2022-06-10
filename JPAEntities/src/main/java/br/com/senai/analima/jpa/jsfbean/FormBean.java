@@ -14,24 +14,37 @@ import javax.inject.Named;
 import br.com.senai.analima.jpa.ejbbean.TarefaBean;
 import br.com.senai.analima.model.Tarefa;
 
+
+// Usado para retirar o Warning na tela 
 @SuppressWarnings("serial")
+
+
+// Define o nome que o BEAN será chamado na página XHTML
 @Named("form")
+
+
+// Define o tempo de vida do ESCOPO, no caso o REQUESTSCOPED ficará "vivo" durante a requisição HTTP, ou seja, após a mostra do resultado,tudo será excluido e será gerada uma nova requisição caso a página seja acionada novamente.
 @RequestScoped
+
+// A serialização significa salvar o estado atual dos objetos em arquivos em formato binário para o seu computador, sendo assim esse estado poderá ser recuperado posteriormente recriando o objeto em memória assim como ele estava no momento da sua serialização.
 public class FormBean implements Serializable {
 	
 	@EJB
-	//framework de lógica de negócio
+
+	
 	private TarefaBean tarefaBean;
-	//njeta código
+
 	@Inject
 	private FacesContext context;
-	//componente de busca
+
 	private UIComponent searchInputText;
 	
 	private Integer tarefaId;
 	
 	private Tarefa tarefa;
-	//chama os métodos do TarefaBEan
+	
+	// Métodos vindos do TAREFABEAN
+	
 	public void gravar(AjaxBehaviorEvent event) {
 		if(tarefa.getId()==null) {
 			tarefaBean.inserir(tarefa);
@@ -44,7 +57,8 @@ public class FormBean implements Serializable {
 		tarefa = tarefaBean.carregar(tarefaId);
 		
 		if(tarefa == null) {
-			//faz a busca do ID da tarefa
+			
+			// O usuário insere um número de ID e será verificado se a ID existe no banco, caso contrário irá aparecer a mensagem abaixo
 			context.addMessage(searchInputText.getClientId(context),
 					new FacesMessage("Tarefa não encontrada"));
 		}

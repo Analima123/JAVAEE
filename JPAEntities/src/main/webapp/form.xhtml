@@ -12,12 +12,14 @@
 </h:head>
 
 <body>
+	
+	<!-- ReferÃªncia o formulÃ¡rio, pesquisa -->
 	<h:form id="searchForm">
 		<h:panelGrid columns="4">
 			ID da tarefa:
-			<!-- campo de pesquisa  -->
+			
 			<h:inputText id="searchId" value="#{form.tarefaId}" binding="#{form.searchInputText}"
-				required="true" requiredMessage="Digite um ID" converterMessage="O ID não é válido" validatorMessage="O ID não é válido">
+				required="true" requiredMessage="Digite um ID" converterMessage="O ID nÃ£o Ã© vÃ¡lido" validatorMessage="O ID nÃ£o Ã© vÃ¡lido">
 				<f:validateLongRange minimum="1" maximum="1000" />
 			</h:inputText>
 			<h:commandButton value="Pesquisar">
@@ -29,11 +31,13 @@
 	
 	<br /><hr /><br />
 	
+	
+	<!-- ReferÃªncia o formulÃ¡rio, edita -->
 	<h:form id="editForm">
 		<h:panelGrid columns="3">
-			Descrição:
-			<!-- descrição é um campo obrigatório -->
-			<h:inputText id="descricao" value="#{form.tarefa.descricao}" required="true" requiredMessage="Digite uma descrição" />
+			DescriÃ§Ã£o:
+
+			<h:inputText id="descricao" value="#{form.tarefa.descricao}" required="true" requiredMessage="Digite uma descriÃ§Ã£o" />
 			<h:message for="descricao" style="color: red;" />
 			Prioridade:
 			<h:selectOneMenu id="prioridade" value="#{form.tarefa.prioridade}">
@@ -41,10 +45,12 @@
 				<f:selectItem itemValue="2" itemLabel="2" />
 				<f:selectItem itemValue="3" itemLabel="3" />
 			</h:selectOneMenu>
-			<!--  estilo da mensagem com id prioridade -->
+		
+			
+			
 			<h:message for="prioridade" style="color: red;" />
 			
-			Concluída:
+			ConcluÃ­da:
 			<h:selectBooleanCheckbox value="#{form.tarefa.concluida}" />
 		</h:panelGrid>
 		<h:inputHidden value="#{form.tarefa.id}" />

@@ -4,10 +4,15 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+
+// As classes Java que representam os dados a serem armazenados no SGBD são chamadas de Entidades (Entity).
 @Entity
 public class Tarefa {
 
+	// Define a primary key da tabela
 	@Id
+	
+	// JPA passará a utilizar a geração de chave primária do banco de dados ao qual a aplicação está conectada.
 	@GeneratedValue
 	private Integer id;
 	

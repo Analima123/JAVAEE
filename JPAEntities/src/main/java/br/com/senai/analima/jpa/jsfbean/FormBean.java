@@ -29,12 +29,15 @@ import br.com.senai.analima.model.Tarefa;
 // A serialização significa salvar o estado atual dos objetos em arquivos em formato binário para o seu computador, sendo assim esse estado poderá ser recuperado posteriormente recriando o objeto em memória assim como ele estava no momento da sua serialização.
 public class FormBean implements Serializable {
 	
+	
+//EJB é um framework do Java EE. Eles são executados em um container EJB no lado do servidor. A principal característica do EJB é a rapidez em desenvolver soluções, pois, ele fornece um conjunto de componentes prontos, o que torna o desenvolvimento eficiente.
 	@EJB
 
 	
 	private TarefaBean tarefaBean;
 
-	@Inject
+	//A anotação @Inject nos permite definir um ponto de injeção que é injetado durante a instanciação do bean
+	
 	private FacesContext context;
 
 	private UIComponent searchInputText;

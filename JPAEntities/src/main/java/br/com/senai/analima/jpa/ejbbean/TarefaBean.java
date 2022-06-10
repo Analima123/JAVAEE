@@ -5,9 +5,15 @@ import javax.persistence.EntityManager;
 import javax.persistence.PersistenceContext;
 
 import br.com.senai.analima.model.Tarefa;
-//Stateles é uma classe que representa um serviço
+
+
+
 @Stateless
+
+
 public class TarefaBean {
+	
+	
 //Persistence context é onde fica armazenado os objetos do entity manager
 	@PersistenceContext
 	private EntityManager em;

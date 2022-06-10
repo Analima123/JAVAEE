@@ -19,7 +19,7 @@ import br.com.senai.analima.model.Tarefa;
 @SuppressWarnings("serial")
 
 
-// Define o nome que o BEAN será chamado na página XHTML
+// Define o nome que o BEAN será chamado na página XHTML, no caso o nome definido foi "form"
 @Named("form")
 
 

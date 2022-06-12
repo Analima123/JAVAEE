@@ -13,15 +13,22 @@ import javax.inject.Named;
 import br.com.senai.analima.application.model.Despesas;
 import br.com.senai.analima.jpa.ejbbean.ComandosBean;
 
+// Usado para retirar o Warning na tela 
+@SuppressWarnings("serial") 
 
-@SuppressWarnings("serial") //tira anuncios de advert�ncia
+// Define o nome que o BEAN será chamado na página XHTML, no caso será chamado de "TABELA"
 @Named("tabela")
-@SessionScoped //tempo de vida da p�gina, o "session" mant�m os dados enquanto o navegador estiver aberto
+
+
+
+@SessionScoped 
+
+
+// A serialização significa salvar o estado atual dos objetos em arquivos em formato binário para o seu computador, sendo assim esse estado poderá ser recuperado posteriormente recriando o objeto em memória assim como ele estava no momento da sua serialização.
 public class TabelaBean implements Serializable{
-	//Criando uma Lista com todos os objetos
-	private List<Despesas> despesas = new ArrayList<>();
 	
-	//Vari�veis que ir� receber as informa��es do formul�rio e ir� enviar para a classe "Despesas"
+	// Responsável por criar a lista de despesas
+	private List<Despesas> despesas = new ArrayList<>();
 	private String user;
 	private String senha;
 	
@@ -29,13 +36,21 @@ public class TabelaBean implements Serializable{
 	String desc1;
 	Double Valor1;
 	String produtos;
-	//a variável "a" será uma variável que será responsável por renderizar a tabela do usuário
-	//Se a variável estiver "true", significa que será renderizando na tela
-	//Se a variável estiver "false", significa que não será renderizado na tela
+	
+	// A variável "a" será responsável por renderizar a tabela do usuário
+	
+	// Se a variável receber "true", significa que será renderizando na tela
+	
+	//Se a variável receber "false", significa que não será renderizado na tela
+	
 	Boolean a = false; 
-	//Está variável é responsável por verificar se já foi criado um objeto ou não
+	
+	
 	private Despesas despesas1;
-	//
+
+	//Lógica de negócios	
+	//EJB é um framework do Java EE. Eles são executados em um container EJB no lado do servidor. A principal característica do EJB é a rapidez em desenvolver soluções, pois, ele fornece um conjunto de componentes prontos, o que torna o desenvolvimento eficiente.
+	
 	@EJB
 	private ComandosBean comandosBean;
 	
@@ -90,7 +105,10 @@ public class TabelaBean implements Serializable{
 	
 	
 	
-//O método "gravarBanco", "ExcluirBanco" e "EditarBanco" estão recebendo os métodos que estão na classe "comandosBean".
+	
+// O método "gravarBanco", "ExcluirBanco" e "EditarBanco" estão recebendo os métodos vindos da classe "comandosBean".
+// o "d" representa o objeto "despesa"
+	
 	public void gravarBanco(Despesas d) {
 		comandosBean.inserir(d);
 		
@@ -106,42 +124,48 @@ public class TabelaBean implements Serializable{
 	}
 	
 	
-
-	
-	
 	
 	public String inserir(String data,String desc,Double Valor) {
-		//Criando uma instância com a classe "Despesas" e mandando as informações das variáveis data1, desc1 e valor1 
+		
+		
+		// Criando uma instância com a classe "Despesas" com os parâmetros data, desc e valor que receberão as informações
+		
 		Despesas d = new Despesas(data,desc,Valor);
 		d.setEdit(true);
-		//Informando que a tabela será renderizada na tela
+		
 		a =true;
-		//Adicionando na lista
+		
+		// Adicionando as informações na lista
+		
 		despesas.add(d);
 		data1 = null;
 		desc1 = null;
 		Valor1= null;
-		//Mandando as informações no Banco de Dados
+		
+		// Responsável por enviar as informações no banco de dados
+		
 		gravarBanco(d);
 		
 		return null;
 
 	}
 	
+	// Exclui as despesas da lista e banco
+	
 	public String excluir(Despesas despesa) {
-		//removendo o objeto da lista 
 		despesas.remove(despesa);
-		//Removendo o objeto do Banco de Dados
 		ExcluirBanco(despesa);
 		return null;
 	}
 	
+	// Ao receber true, será possível editar as informações que já foram inseridas
 	public String editar(Despesas despesa) {
-		//Informando que a variável "edit" será true, o que significa que o usuário poderá editar as suas informações
+		// Informando que a variável "edit" será true, o que significa que o usuário poderá editar as suas informações
 		despesa.setEdit(true); 
 		EditarBanco(despesa);
 		return null;
 	}
+	
 	
 	public String gravar (Despesas despesa) {
 		despesa.setEdit(false);
@@ -161,9 +185,11 @@ public class TabelaBean implements Serializable{
 		return despesas;
 	}
 	
+	// Responsável por fazer a validação da existência de um objeto
+	// Caso contrário será inserido um novo objeto
+	
 	public Despesas getDespesas1() {
-		//Validando se já existe ou não um objeto
-		//Caso não existir, fazer uma nova instância
+		
 		if(despesas1==null) {
 			despesas1 = new Despesas();
 		}
@@ -178,9 +204,10 @@ public class TabelaBean implements Serializable{
 		this.a = a;
 	}
 
+	// Faz a validação de login e senha 
 	public String doLogin() {
 		//Fazendo a validação no login e senha
-		if("willian".equals(user) && "admin".equals(senha)) {
+		if("abc".equals(user) && "123".equals(senha)) {
 			return "despesas";	
 		}
 		return null;

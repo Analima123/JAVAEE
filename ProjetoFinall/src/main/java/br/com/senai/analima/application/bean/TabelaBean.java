@@ -41,7 +41,7 @@ public class TabelaBean implements Serializable{
 	
 	// Se a variável receber "true", significa que será renderizando na tela
 	
-	//Se a variável receber "false", significa que não será renderizado na tela
+	// Se a variável receber "false", significa que não será renderizado na tela
 	
 	Boolean a = false; 
 	
@@ -107,7 +107,7 @@ public class TabelaBean implements Serializable{
 	
 	
 // O método "gravarBanco", "ExcluirBanco" e "EditarBanco" estão recebendo os métodos vindos da classe "comandosBean".
-// o "d" representa o objeto "despesa"
+// O "d" representa o objeto "despesa"
 	
 	public void gravarBanco(Despesas d) {
 		comandosBean.inserir(d);

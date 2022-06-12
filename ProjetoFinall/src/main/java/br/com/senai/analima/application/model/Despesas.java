@@ -4,16 +4,23 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 
+
+// As classes Java que representam os dados a serem armazenados no SGBD são chamadas de Entidades (Entity).
 @Entity
+
+
 public class Despesas {
-//atributos primitivos n�o podem ser nulos, por isso usamos os wrappers
+
+	
 private String data;
 private String descricao;
 private Double valor;
 private Boolean edit;
 
-
+// Primary key 
 @Id
+	
+	
 @GeneratedValue
 private Integer id;
 

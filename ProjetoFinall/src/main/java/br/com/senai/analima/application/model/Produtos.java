@@ -3,12 +3,21 @@ package br.com.senai.analima.application.model;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
-//Método que irá fazer a junção com a tabela Despesas
+
+
+// As classes Java que representam os dados a serem armazenados no SGBD são chamadas de Entidades (Entity).
 @Entity
+
 public class Produtos {
 	
+	// Primary key
 	@Id
+	
+	//
+	
 	@GeneratedValue
+	
+	
 	private Integer id;
 	private String nome;
 	private Double valor;

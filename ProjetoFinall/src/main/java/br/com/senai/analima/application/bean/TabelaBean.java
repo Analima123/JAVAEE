@@ -20,7 +20,7 @@ import br.com.senai.analima.jpa.ejbbean.ComandosBean;
 @Named("tabela")
 
 
-
+// O Escopo ficará vivo enquanto a sessão estiver viva, ou seja, a sessão ficará viva enquanto o navegador não for fechado ou ao ter um time out definido
 @SessionScoped 
 
 

@@ -1,4 +1,4 @@
-//Esses comandos estão puxando os todos os recursos do JSF
+//Esses comandos estÃ£o puxando os todos os recursos do JSF
 <?xml version="1.0" encoding="ISO-8859-1" ?>
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml"
@@ -15,25 +15,27 @@
 </h:head>
 <script>
 
-//Fazendo a validação dos campos
+<!-- Responsável por fazer a validação do campos usando javascript -->
 		function verificarCampos(){
-			//Variáveis recebendo o valor das variáveis da classe "Despesas"
+			//VariÃ¡veis recebendo o valor das variÃ¡veis da classe "Despesas"
 			var data = document.getElementById("f:data").value;
 			var descricao = document.getElementById("f:descricao").value;
 			var valor = document.getElementById("f:valor").value;
-		//Laço para validar se algum campo estiver vazio, irar mostrar um alerta na tela
+		
+		<!-- Caso algum campo estiver vazio, as mensagens abaixo irão aparecer como um alert -->
+			
 			if(data ==""){
-				alert("DATA N�O PREENCHIDA!!");
+				alert("DATA NÃO PREENCHIDA!!");
 				return false;
 				
 			}else{
 				if(descricao ==""){
-					alert("DESCRI��O N�O PREENCHIDA!!");
+					alert("DESCRIÇÃO NÃO PREENCHIDA!!");
 					return false;
 				}else{
 					
 					if(valor ==""){
-					alert("VALOR N�O PREENCHIDO!!");
+					alert("VALOR NÃO PREENCHIDO!!");
 					return false;}
 					
 					
@@ -51,9 +53,7 @@
 
 
 
-	<!-- Criando um formulário fixo, o usuário deverá colocar a data, a descrição e um valor -->
-	
-	<!--  Inicialmente, todas as informações do usuário será enviadas para três variáveis temporarias "data1, desc1, valor1" que vão receber as infomações do usuário e fazer a ligação do Bean ao objeto -->
+	<!-- 
 	<ui:define name="conteudo">
 	
 	<h:outputStylesheet library = "css" name = "styles.css" /> 
@@ -63,23 +63,25 @@
 	<h:panelGrid>
 	
 	<h:column>
-	<h:outputText value="Data"></h:outputText>
+	<h:outputText value="DATA"></h:outputText>
 	<br/>
 	<h:inputText value="#{tabela.data1}" id="data"></h:inputText>
 	</h:column>
 	
 	<h:column>
-	<h:outputText value="Descrição"></h:outputText>
+	<h:outputText value="DESCRIÇÃO"></h:outputText>
 	<br/>
 	<h:inputText value="#{tabela.desc1}" id="descricao"></h:inputText>
 	</h:column>
 	
 	<h:column>
-	<h:outputText value="valor"></h:outputText>
+	<h:outputText value="VALOR"></h:outputText>
 	<br/>
 	<h:inputText value="#{tabela.valor1}" id="valor"></h:inputText>
 	</h:column>
-	<!-- Enviando o Formulário -->
+	
+
+    <!-- Responsável por enviar o formulário -->
 	<h:commandButton value="Inserir" action="#{tabela.inserir(tabela.data1,tabela.desc1,tabela.valor1)}" onclick="return verificarCampos()"></h:commandButton>
 	</h:panelGrid>
 	</h:panelGroup>
@@ -98,16 +100,20 @@
 			
 			<th class="cabecalho">ID</th>
 			<th class="cabecalho">DATA</th>
-			<th class="cabecalho">DESCRI��O</th>
+			<th class="cabecalho">DESCRIÇÃO</th>
 			<th class="cabecalho">VALOR</th>
-			<th class="cabecalho">OPERA��O</th>
+			<th class="cabecalho">OPERAÇÃO</th>
 						
 			</tr>
-			<!-- Todas as vezes que adicionar um novo objeto, irá se repetir tudo que está dentro do "repeat" -->
+			
+			<!-- Repeat será responsável por executar o código toda vez que um novo valor for inserido -->
+			
 			<ui:repeat value="#{tabela.despesas}" var="d" varStatus="st">
 			
 		<tr>
-				<!-- Quando o "edit" estiver como falso, terá um outputText e se caso estiver verdadeiro, terá um inputText-->
+				<!-- Edit = false -----> outputtext->
+				<!-- Edit = true -----> inputtext->
+			
 				<td class="colNumero" colspan="1">#{st.index +1}</td>
 				<td class="colData" colspan="1">
 				<h:outputText value ="#{d.data}" rendered = "#{!d.edit}"/>

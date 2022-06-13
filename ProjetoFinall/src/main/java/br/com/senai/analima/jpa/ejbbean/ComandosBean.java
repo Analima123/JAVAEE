@@ -6,14 +6,18 @@ import javax.persistence.PersistenceContext;
 
 import br.com.senai.analima.application.model.Despesas;
 
-
+// Utilizar Stateless quando não há necessidade de manter o estado dos valores
 @Stateless
+
 public class ComandosBean {
 
-	//Responsável por gerenciar o banco de dados
+// Recurso responsável por realizar as operações de sincronismo com o banco de dados (inserir, remover, atualizar ou consultar - CRUD) e gerenciar o ciclo de vida das entidades.
+	
 		@PersistenceContext
 		private EntityManager em;
-		//Métodos que irão adicionar, editar, excluir e carregar no Banco de Dados
+	
+	
+		
 		public void inserir(Despesas despesas) {
 			em.persist(despesas);
 		}

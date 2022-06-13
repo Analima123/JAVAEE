@@ -20,7 +20,7 @@ private Boolean edit;
 // Primary key 
 @Id
 	
-	
+// JPA passará a utilizar a geração de chave primária do banco de dados ao qual a aplicação está conectada.
 @GeneratedValue
 private Integer id;
 

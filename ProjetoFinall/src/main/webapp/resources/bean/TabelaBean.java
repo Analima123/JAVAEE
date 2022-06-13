@@ -11,13 +11,20 @@ import javax.inject.Named;
 
 import br.com.senai.DennisSouza.application.model.Despesas;
 
-@SuppressWarnings("serial") //tira anuncios de advert�ncia
+// Usado para retirar o Warning na tela 
+@SuppressWarnings("serial") 
+
+ // Define o nome que o BEAN será chamado na página XHTML
 @Named("tabela")
-@SessionScoped //tempo de vida da p�gina, o "session" mant�m os dados enquanto o navegador estiver aberto
-public class TabelaBean implements Serializable{
+
+// Define o tempo de vida do ESCOPO, no caso o REQUESTSCOPED ficará "vivo" durante a requisição HTTP, ou seja, após a mostra do resultado,tudo será excluido e será gerada uma nova requisição caso a página seja acionada novamente
+@SessionScoped 
 	
+
+   // Lista de objetos 
 	private List<Despesas> despesas = new ArrayList<>();
-	//lista que trabalha com o jsf
+
+
 	String data1;
 	String desc1;
 	Double Valor1;
@@ -54,7 +61,7 @@ public class TabelaBean implements Serializable{
 	
 	public String inserir(String data,String desc,Double Valor) {
 		
-		Despesas d = new Despesas(data,desc,Valor); //inst�ncia da listdatamodel
+		Despesas d = new Despesas(data,desc,Valor); 
 		d.setEdit(true);
 		a =true;
 		despesas.add(d);
